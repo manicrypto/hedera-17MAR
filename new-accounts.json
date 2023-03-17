@@ -1,0 +1,26 @@
+{
+  "ACCOUNT3": {
+    "accountId": "0.0.3837080",
+    "publicKey": "302a300506032b6570032100431b7a058185b479f83299ad15446243ed8aeaaee0e01ce23d31f5bdbc14c35c",
+    "privateKey": "302e020100300506032b657004220420768e1802133bc734508117fe078ed6831363af08a96ba753520f7c973ac7659d",
+    "balance": {
+      "_valueInTinybar": "100000000000"
+    }
+  },
+  "ACCOUNT2": {
+    "accountId": "0.0.3837077",
+    "publicKey": "302a300506032b6570032100d9e6888c101ee6b254b7f9dbdee50b5b58173827644e24ffaded030585ad0b91",
+    "privateKey": "302e020100300506032b65700422042041c0344d030051d30ed603ac4e86eec1cc78cc8dbb79988e544044735a6b68c6",
+    "balance": {
+      "_valueInTinybar": "100000000000"
+    }
+  },
+  "ACCOUNT1": {
+    "accountId": "0.0.3837075",
+    "publicKey": "302a300506032b6570032100560de159907e8196166d5ec2b9403c33b2c593b6f0de7fb73e3301ab93670c33",
+    "privateKey": "302e020100300506032b657004220420ce37747fd2f569c31c6a2c64aecb5c5bf389c65a2fb75cb561e63902134264de",
+    "balance": {
+      "_valueInTinybar": "100000000000"
+    }
+  }
+}

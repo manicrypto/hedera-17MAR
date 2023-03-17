@@ -1,0 +1,21 @@
+
+## Deploy smart contract
+node scripts/deployToHedera.js 
+
+302e020100300506032b65700422042034255a0e9dc460b902a5598dd3b0c808e7b72b8c60352975045525a368f8e595
+The smart contract ID is 0.0.3842479
+
+## function1
+
+0.0.3836607
+302e020100300506032b6570042204205884556dff3d1deb11856f940ac2764f5d66507b11a4244835d89026368cea0f
+The smart contract ID is 0.0.3842479
+The transaction status is SUCCESS
+The function output is 12
+
+## Function2
+
+0.0.3836607
+302e020100300506032b6570042204205884556dff3d1deb11856f940ac2764f5d66507b11a4244835d89026368cea0f
+transaction status is SUCCESS
+the result of function2 is: 44
