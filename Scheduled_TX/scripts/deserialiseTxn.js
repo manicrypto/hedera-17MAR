@@ -1,6 +1,7 @@
 import {
   TransferTransaction,
   Client,
+  Transaction,
   ScheduleCreateTransaction,
 } from "@hashgraph/sdk";
 
@@ -12,6 +13,8 @@ import { accounts } from "../../utils/getAccountDetails.js";
 
 const myAccountId = accounts.mainAccount.id;
 const myPrivateKey = accounts.mainAccount.privateKey;
+
+
 
 console.log(myAccountId);
 console.log(myPrivateKey);
@@ -33,29 +36,26 @@ if (myAccountId == null || myPrivateKey == null) {
 
 const client = Client.forTestnet();
 
-client.setOperator(myAccountId, myPrivateKey);
+client.setOperator(firstAccountId, firstAccountPrivateKey);
 
 const scheduleTxBase64 = accounts.serialisedTransaction;
 
 async function main() {
-  // const adminUser = new Wallet(accountId, privateKey);
-  let deserializedData = Buffer.from(scheduleTxBase64, 'base64').toString();
 
-  // deserialize the hash
-  let transaction = JSON.parse(deserializedData);
+    // Deserialize the transaction
+    const transaction = Transaction.fromBytes(
+      Buffer.from(scheduleTxBase64, 'base64')
+    );
+    await transaction.sign(firstAccountPrivateKey);
 
-  const scheduleTransaction = new ScheduleCreateTransaction(transaction)
-      .sign(firstAccountPrivateKey);
 
-  //Sign with the client operator key to pay for the transaction and submit to a Hedera network
-  const txResponse = await scheduleTransaction.execute(client);
+    const txResponse = await transaction.execute(client);
 
-  //Get the receipt of the transaction
-  const receipt = await txResponse.getReceipt(client);
+    const receipt = await txResponse.getReceipt(client);
+    // Get the transaction status
+    const transactionStatus = receipt.status;
 
-  //Get the transaction status
-  const transactionStatus = receipt.status;
-  console.log("The transaction consensus status is " + transactionStatus);  
+    console.log(`The transaction consensus status is ${transactionStatus}`);
 
   process.exit();
 }

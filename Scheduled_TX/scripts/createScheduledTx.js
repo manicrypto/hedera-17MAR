@@ -37,21 +37,21 @@ if (myAccountId == null || myPrivateKey == null) {
 
 const client = Client.forTestnet();
 
-client.setOperator(myAccountId, myPrivateKey);
+client.setOperator(firstAccountId, firstAccountPrivateKey);
 
 async function main() {
   // const adminUser = new Wallet(accountId, privateKey);
 
   //Create a transaction to schedule
   const transaction = new TransferTransaction()
-    .addHbarTransfer(firstAccountId, new Hbar(-1))
-    .addHbarTransfer(secondAccountId, new Hbar(1));
+    .addHbarTransfer(firstAccountId, new Hbar(-10))
+    .addHbarTransfer(secondAccountId, new Hbar(10));
 
   //Schedule a transaction
   const scheduleTransaction = await new ScheduleCreateTransaction()
     .setScheduledTransaction(transaction)
     .setScheduleMemo("Scheduled transaction!")
-    .setAdminKey(myPrivateKey)
+    .setAdminKey(firstAccountPrivateKey)
     .execute(client);
 
   //Get the receipt of the transaction
